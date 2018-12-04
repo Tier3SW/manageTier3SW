@@ -1,0 +1,1316 @@
+*****************************************************************************
+Note: Do not edit this section.
+
+Please add some information about the changes you are committing to svn.
+The format should be 
+
+<tag version>
+-------------
+date (ddMMMYY): name
+Description of changes.
+
+with the newest changes at the top of the file.
+*****************************************************************************
+
+V00-06-36
+---------
+24Jan17: A. De Silva
+Added local dir override
+
+V00-06-35
+---------
+24Jan17: A. De Silva
+cleanup of obsolete code
+
+V00-06-34
+---------
+20Jan17: A. De Silva
+Change to new installation system
+
+V00-06-33
+---------
+20Jan17: A. De Silva
+Change to new installation system
+
+V00-06-32
+---------
+18Jan17: A. De Silva
+Change to new installation system
+
+V00-06-31
+---------
+18Jan17: A. De Silva
+new installation code
+
+V00-06-30
+---------
+12Jan17: A. De Silva
+lockfile check added
+
+V00-06-29
+---------
+12Jan17: A. De Silva
+getopt wrapper added
+
+V00-06-27
+---------
+10Jan17: A. De Silva
+new installation method fucntions
+
+V00-06-26
+---------
+09Jan17: A. De Silva
+new installation method fucntions
+
+V00-06-25
+---------
+06Jan17: A. De Silva
+new installation method fucntions
+
+V00-06-24
+---------
+05Jan17: A. De Silva
+new installation method fucntions
+
+V00-06-23
+---------
+03Jan17: A. De Silva
+new installation method fucntions
+
+V00-06-22
+---------
+12Dec16: A. De Silva
+New installation sw
+
+V00-06-21
+---------
+07Dec16: A. De Silva
+New installation sw
+
+V00-06-20
+---------
+12jan16: A. De Silva
+pre-cleanup of bad gcc 484 and remove dq2 wrappers
+
+V00-06-19
+---------
+21Oct15: A. De Silva
+remove bad xrootd 4.2.3
+
+V00-06-18
+---------
+22Jun15: A. De Silva
+remove bad gcc and root
+
+V00-06-17
+---------
+30Oct14: A. De Silva
+remove root 5.34.22 and 6.02.01
+
+V00-06-16
+---------
+01Oct14: A. De Silva
+patch root 5.34.21
+
+V00-06-15
+---------
+17Sep14: A. De Silva
+dependencies file
+
+V00-06-14
+---------
+07Aug14: A. De Silva
+reinstall gcc48
+
+V00-06-13
+---------
+21Jul14: A. De Silva
+reloateable scripts for agis, dq2, gcc, panda and pacman
+
+V00-06-12
+---------
+18Jul14: A. De Silva
+pre_removeAbsPath.sh
+
+V00-06-11
+---------
+08Jul14: A. De Silva
+remove mistaken MacOS ROOT installation
+
+V00-06-10
+---------
+07Jul14: A. De Silva
+remove Attila's MacOS ROOT build.
+
+V00-06-09
+---------
+02May14: A. De Silva
+allow for multiple platform installations.
+
+V00-06-08
+---------
+13Mar14: A. De Silva
+Updated to use postInstall script instead of postAthena script.
+Need ALRB V00-14-00 or nerer.
+remove git,hwaf,mana
+
+V00-06-07
+---------
+27Nov13: A. De Silva
+Added preXrootD fix
+
+V00-06-06
+---------
+07Oct13: A. De Silva
+Removed 64-bit gLite
+
+V00-06-05
+---------
+26Aug13: A. De Silva
+Implemented sym link removals
+
+V00-06-04
+---------
+23May13: A. De Silva
+Bug fix 
+
+V00-06-03
+---------
+23May13: A. De Silva
+Bug fix 
+
+V00-06-02
+---------
+23May13: A. De Silva
+Added post_fixGcc script
+Epoch time added in lastUpdate file.
+
+V00-06-01
+---------
+04Jan13: A. De Silva
+Migrate from pacman - suppress local DBRelease update.
+
+V00-05-05
+---------
+01Oct12: A. De Silva
+Patch to remove placeholder 5.34.01.xrd3.2.2 releases.
+
+V00-05-04
+---------
+06Sep12: A. De Silva
+Removal of root 5.34/01 built with xrd 3.1.0
+
+V00-05-03
+---------
+23Aug12: A. De Silva
+Removal of root 5.34.01tmp
+
+V00-05-02
+---------
+11May12: A. De Silva
+post svn fix script added
+
+V00-05-01
+---------
+10May12: A. De Silva
+bug fix
+
+V00-05-00
+---------
+10May12: A. De Silva
+removed obsolete pre/post scripts
+migration to another svn server.
+
+V00-04-44
+---------
+12Apr12: A. De Silva
+Prevent post cleanup of xrootd
+
+V00-04-43
+---------
+05Apr12: A. De Silva
+rerun precleanup again.
+
+V00-04-42
+---------
+02Apr12: A. De Silva
+Cleanup - Remove old AtlasSetup dir.
+
+V00-04-41
+---------
+19Mar12: A. De Silva
+No cron jobs option passed
+
+V00-04-40
+---------
+07Mar12: A. De Silva
+Protect glite patch changes for FQDN.
+
+V00-04-39
+---------
+07Mar12: A. De Silva
+remove obsolete gLite 3.1 sym link.
+fix gLite for new WMSshared servers.
+
+V00-04-38
+---------
+02Mar12: A. De Silva
+Added motd
+
+V00-04-37
+---------
+29Aug11: A. De Silva
+cleanups: obslete asetup stuff, old latest Athena sym links
+
+V00-04-36
+---------
+17May11: A. De Silva
+remove wlcg-client-lite
+
+V00-04-35
+---------
+06May11: A. De Silva
+README updated.
+
+V00-04-34
+---------
+07Apr11: A. De Silva
+Fix for incorrect ROOT version
+
+V00-04-33
+---------
+06Apr11: A. De Silva
+delete incorrect 32-bit python version
+fixed gLite patching to use new CA_REPOSITORY
+
+V00-04-32
+---------
+15Mar11: A. De Silva
+bug fix.
+
+V00-04-31
+---------
+10Mar11: A. De Silva
+new cleanup patch
+
+V00-04-30
+---------
+22Feb11: A. De Silva
+Fix for ROOT (remove bad version)
+
+V00-04-29
+---------
+03Feb11: A. De Silva
+bug fix for exclude cleanup list.
+
+V00-04-28
+---------
+25Jan11: A. De Silva
+Fixed pre_fixGLite for BNL.
+
+V00-04-27
+---------
+09Dec10: A. De Silva
+post_fixGLite.sh added.
+
+V00-04-26
+---------
+17Nov10: A. De Silva
+Added pre_fixDQ2Client.sh to fix DQ2.
+Check that setupATLAS is not done.
+
+V00-04-25
+---------
+01Nov10: A. De Silva
+cleanup functionality added.
+
+V00-04-24
+---------
+28Oct10: A. De Silva
+Increased lock timeout to 1 hr.
+
+V00-04-23
+---------
+21Oct10: A. De Silva
+added post_RemoveObsolete.sh
+
+V00-04-22
+---------
+14Oct10: A. De Silva
+Removed obsolete wlcg-client code.
+
+V00-04-21
+---------
+12Oct10: A. De Silva
+updateDBRelease invoked at the end of the process.
+
+V00-04-20
+---------
+25Aug10: A. De Silva
+create site AtlasSetup files.
+
+V00-04-19
+---------
+10Aug10: A. De Silva
+Fixed check for root in perl script.
+
+V00-04-18
+---------
+21Jun10: A. De Silva
+Allow for multiple pacman mirrors.
+
+V00-04-17
+---------
+11Jun10: A. De Silva
+Fixed bug in parsing options.
+
+V00-04-16
+---------
+12May10: A. De Silva
+Timestamp of when manageTier3SW was last updated at a site.
+
+V00-04-15
+---------
+28Apr10: A. De Silva
+Fail flag if gcc athena patch fails.
+
+V00-04-14
+---------
+22Apr10: A. De Silva
+Minor change: debug statement removed.
+Patch for fixing gcc in Athena kits slc5_gcc43.
+Bug fix.
+
+V00-04-13
+---------
+01Apr10: A. De Silva
+More minor bug fixes.
+
+V00-04-12
+---------
+01Apr10: A. De Silva
+pre_ALRB.sh added.
+moved Athena update to after this step.
+
+V00-04-11
+---------
+31Mar10: A. De Silva
+Bug fix - missing run command.
+
+V00-04-10
+---------
+31Mar10: A. De Silva
+Synch cvs migration scripts.
+
+V00-04-09
+---------
+30Mar10: A. De Silva
+Updated _README.FIRST file.
+Synched migration scripts with cvs.
+Depreciated --useWlcgClient (at least in help).
+Help also tells where to look for overrideConfig values.
+
+V00-04-08
+---------
+30Mar10: A. De Silva
+Synched migration scripts with cvs repo.
+Also added post migration svn cleanup script.
+
+V00-04-07
+---------
+30Mar10: A. De Silva
+Synched migration scripts with cvs repo.
+
+V00-04-06
+---------
+30Mar10: A. De Silva
+Changed lock file name so that migrations will go smoothly 
+(there was a change in schema.)
+
+V00-04-05
+---------
+29Mar10: A. De Silva
+Included another svn migration script.
+
+V00-04-04
+---------
+29Mar10: A. De Silva
+Include svn migration scripts.
+
+V00-04-03
+---------
+29Mar10: A. De Silva
+Some code cleanup.
+
+V00-04-02
+---------
+29Mar10: A. De Silva
+Use svn for ATLASLocalRootBase.
+bug fix for help.
+
+V00-04-01
+---------
+29Mar10: A. De Silva
+Bug fix to installation script.
+
+V00-04-00
+---------
+26Mar10: A. De Silva
+Perl script to update ALRB.
+Changed update of manageTier3SW from cvs to svn.
+Changed installation dir to $HOME instead of $HOME/bin.
+
+
+*****************************************************************************
+Below: versions which existed on ATLAS Canada's cvs server.
+The history of these versions are not migrated to CERN svn.
+*****************************************************************************
+Version V00-03-05
+-----------------
+ALRB V00-05-10
+
+Version V00-03-04
+-----------------
+PandaClient 0.2.22
+
+Version V00-03-03
+-----------------
+ALRB V00-05-07
+
+Version V00-03-02
+-----------------
+ALRB V00-05-06
+
+Version V00-03-01
+-----------------
+ALRB V00-05-05
+Athena dir migration.
+
+Version V00-02-10
+-----------------
+Panda 0.2.21
+
+Version V00-02-09
+-----------------
+Panda 0.2.20
+Ganga 5.5.2
+
+Version V00-02-08
+-----------------
+2 checks for network connectivity (thanks A. Stradling)
+Top level script modified to allow pass through options.  
+Removed post installation links to ALRB.
+ALRB V00-04-77
+
+Version V00-02-07
+-----------------
+Ganga 5.5.1-hotfix2
+
+Version V00-02-06
+-----------------
+PandaClient 0.2.18
+
+Version V00-02-05
+-----------------
+PandaClient 0.2.16
+Ganga 5.5.1
+
+Version V00-02-04
+-----------------
+ALRB V00-04-74
+removed ROOT 5.18 (new default 5.22)
+Only install x86_64 gcc versions in x86_64 platforms.  
+  (also removing if these 32bit versions are present in 64-bit dirs.)
+removed gcc 4.32 sl4 package from being installed.  
+  (keeping those if installed.)
+PandaClient 0.2.15
+DQ2Client 0.1.33
+
+Version V00-02-03
+-----------------
+Ganga 5.5.0
+ALRB V00-04-66
+
+Version V00-02-02
+-----------------
+PandaClient 0.2.14
+
+Version V00-02-01
+-----------------
+new option --useWlcgClient for wlcg-client installation instead of gLite.
+ALRB V00-04-65
+Changed patch names and added one to migrate dq2 local settings to config dir.
+
+Version V00-02-00
+-----------------
+PandaClient 0.2.13
+ALRB V00-04-62
+
+Version V00-01-99
+-----------------
+PandaClient 0.2.12
+
+Version V00-01-98
+-----------------
+PandaClient 0.2.11
+ROOT 5.26 (sl5)
+ALRB V00-04-56
+
+Version V00-01-97
+-----------------
+Ganga 5.4.5
+
+Version V00-01-96
+-----------------
+PandaClient 0.2.10
+
+Version V00-01-95
+-----------------
+PandaClient 0.2.9
+
+Version V00-01-94
+-----------------
+Ganga 5.4.4
+
+Version V00-01-92
+-----------------
+ALRB V00-04-54
+Added --testVer option to updateManageTier3SW.sh.
+
+Version V00-01-91
+-----------------
+PandaClient 0.2.8
+Changes in script to make it conform to bourne shell standards.
+
+Version V00-01-90
+-----------------
+PandaClient 0.2.7
+ALRB V00-04-52
+
+Version V00-01-89
+-----------------
+PandaClient 0.2.5
+
+Version V00-01-88
+-----------------
+Ganga 5.4.3
+
+Version V00-01-87
+-----------------
+ALRB V00-04-51
+
+Version V00-01-86
+-----------------
+PandaClient 0.2.3
+
+Version V00-01-85
+-----------------
+Ganga 5.4.2
+
+Version V00-01-84
+-----------------
+PandaClient 0.2.2
+DQ2Clients 0.1.32
+
+Version V00-01-83
+-----------------
+PandaClient 0.2.1
+ALRB V00-04-49
+local log file output added.
+
+Version V00-01-82
+-----------------
+PandaClient 0.2.0
+Ganga 5.4.1
+
+Version V00-01-81
+-----------------
+PandaClient 0.1.99
+
+Version V00-01-80
+-----------------
+PandaClient 0.1.97
+ALRB V00-04-46
+
+Version V00-01-79
+-----------------
+Removed fixCernVMGanga.sh
+Ganga 5.4.0
+
+Version V00-01-78
+-----------------
+Panda 0.1.96
+ALRB V00-04-45
+
+Version V00-01-77
+-----------------
+ALRB V00-04-43
+
+Version V00-01-76
+-----------------
+Panda Client 0.1.95
+
+Version V00-01-75
+-----------------
+fixed typo.
+
+Version V00-01-74
+-----------------
+pacman options for GCC install (bug fix)
+DQ2 0.1.31
+
+Version V00-01-73
+-----------------
+PandaClient 0.1.94
+Ganga 5.3.6
+
+Version V00-01-72
+-----------------
+gcc432_*_slc5 installed.
+
+Version V00-01-71
+-----------------
+ALRB V00-04-42
+PandaClient 0.1.93
+
+Version V00-01-70
+-----------------
+ALRB V00-04-39
+
+Version V00-01-68
+-----------------
+gLite 3.1.38-0
+
+Version V00-01-67
+-----------------
+PandaClient 0.1.92
+
+Version V00-01-66
+-----------------
+ALRB V00-04-38
+
+Version V00-01-65
+-----------------
+ALRB V00-04-37
+
+Version V00-01-64
+-----------------
+ALRB V00-04-36
+
+Version V00-01-63
+-----------------
+ALRB V00-04-34
+
+Version V00-01-62
+-----------------
+ALRB V00-04-33
+
+Version V00-01-61
+-----------------
+DQ2Client 0.1.29
+
+Version V00-01-60
+-----------------
+PandaClient 0.1.91
+
+Version V00-01-59
+-----------------
+PandaClient 0.1.90
+
+Version V00-01-58
+-----------------
+ALRB V00-04-32
+
+Version V00-01-57
+-----------------
+Ganga 5.3.5
+PandaClient 0.1.88
+
+Version V00-01-56
+-----------------
+Ganga 5.3.4
+
+Version V00-01-55
+-----------------
+ALRB V00-04-28
+remove old gcc dir.
+
+Version V00-01-54
+-----------------
+PandaClient 0.1.87
+
+Version V00-01-53
+-----------------
+PandaClient 0.1.86
+
+Version V00-01-52
+-----------------
+PandaClient 0.1.85
+
+Version V00-01-51
+-----------------
+Ganga 5.3.3
+
+Version V00-01-50
+-----------------
+PandaClient 0.1.84
+
+Version V00-01-49
+-----------------
+Added installOnly option.
+PandaClient 0.1.83
+Ganga 5.3.2
+
+Version V00-01-48
+-----------------
+PandaClient 0.1.81
+
+Version V00-01-47
+-----------------
+ALRB V00-04-27
+
+Version V00-01-46
+-----------------
+ALRB V00-04-26
+
+Version V00-01-45
+-----------------
+ALRB V00-04-25
+
+Version V00-01-44
+-----------------
+ALRB V00-04-24
+PandaClient 0.1.79
+Ganga 5.3.1
+gcc (alternate compilers)
+
+Version V00-01-43
+-----------------
+PandaClient 0.1.78
+ALRB V00-04-22
+
+Version V00-01-42
+-----------------
+ALRB V00-04-21
+PandaClient 0.1.77
+
+Version V00-01-41
+-----------------
+PandaClient 0.1.76
+
+Version V00-01-40
+-----------------
+PandaClient 0.1.75
+ALRB V00-04-20
+Added patch: new  cron job for fetchCA.sh.
+
+Version V00-01-38
+-----------------
+PandaClient 0.1.74
+
+Version V00-01-36
+-----------------
+Ganga 5.3.0
+
+Version V00-01-35
+-----------------
+PandaClient 0.1.73
+
+Version V00-01-34
+-----------------
+ALRB V00-04-19
+
+Version V00-01-33
+-----------------
+PandaClient 0.1.72
+
+Version V00-01-32
+-----------------
+PandaClient 0.1.71
+Ganga 5.2.4
+
+Version V00-01-31
+-----------------
+PandaClient 0.1.70
+
+Version V00-01-30
+-----------------
+PandaClient 0.1.70
+
+Version V00-01-29
+-----------------
+PandaClient 0.1.68
+
+Version V00-01-28
+-----------------
+PandaClient 0.1.65
+
+Version V00-01-27
+-----------------
+PandaClient 0.1.64
+DQ2Client 0.1.28
+
+Version V00-01-26
+-----------------
+ALRB V00-04-18
+
+Version V00-01-25
+-----------------
+PandaClient 0.1.63
+ALRB V00-04-16
+
+Version V00-01-24
+-----------------
+Ganga 5.2.3
+
+Version V00-01-23
+-----------------
+PandaClient 0.1.61
+gLite 3.1.31-0
+
+Version V00-01-22
+-----------------
+ALRB V00-04-15
+
+Version V00-01-21
+-----------------
+ALRB V00-04-14
+
+Version V00-01-20
+-----------------
+PandaClient 0.1.58
+
+Version V00-01-19
+-----------------
+ALRB V00-04-11
+Ganga 5.2.2
+
+Version V00-01-18
+-----------------
+PandaClient 0.1.57
+
+Version V00-01-17
+-----------------
+PandaClient 0.1.56
+
+Version V00-01-16
+-----------------
+PandaClient 0.1.55
+
+Version V00-01-15
+-----------------
+PandaClient 0.1.54
+
+Version V00-01-14
+-----------------
+PandaClient 0.1.52
+
+Version V00-01-13
+-----------------
+Ganga 5.2.0
+ALRB V00-04-10
+
+Version V00-01-12
+-----------------
+PandaClient 0.1.50
+ALRB V00-04-09
+
+Version V00-01-11
+-----------------
+PandaClient 0.1.49
+
+Version V00-01-10
+-----------------
+PandaClient 0.1.47
+
+Version V00-01-09
+-----------------
+ALRB V00-04-08
+
+Version V00-01-08
+-----------------
+ALRB V00-04-07
+
+Version V00-01-07
+-----------------
+Fix gLite patch updated to include new WMS Host.
+
+Version V00-01-06
+-----------------
+PandaClient 0.1.46
+
+Version V00-01-05
+-----------------
+Updated README.FIRST file.
+PandaClient 0.1.44
+
+Version V00-01-04
+-----------------
+PandaClient 0.1.42
+
+Version V00-01-03
+-----------------
+Ganga 5.1.10
+IgnoreLock option added to updateATLASLocalRootBase.sh.
+
+Version V00-01-02
+-----------------
+DQ2Clients 0.1.41
+ALRB V00-04-06
+Added code to create/remove locks to prevent scripts from clashing during 
+installation.
+
+Version V00-01-01
+-----------------
+Replace python-i686 with python
+Install both 32 and 64 bit versions of python for 64 bit OS.
+
+Version V00-00-81
+-----------------
+PandaClient 0.1.40
+
+Version V00-00-80
+-----------------
+new patch to fix gLite VOMS certificates.
+
+Version V00-00-79
+-----------------
+PandaClient 0.1.37
+
+Version V00-00-78
+-----------------
+PandaClient 0.1.35
+
+Version V00-00-77
+-----------------
+PandaClient 0.1.34
+
+Version V00-00-76
+-----------------
+PandaClient 0.1.32
+Minor script display color bug fix.
+
+Version V00-00-75
+-----------------
+ALRB V00-03-43
+Ganga 5.1.9
+
+Version V00-00-74
+-----------------
+ALRB V00-03-42
+
+Version V00-00-73
+-----------------
+ALRB V00-03-41
+
+Version V00-00-72
+-----------------
+ALRB V00-03-38
+
+Version V00-00-71
+-----------------
+ALRB V00-03-37
+PandaClient 0.1.31
+
+Version V00-00-70
+-----------------
+Minor typo in screen output.
+
+Version V00-00-69
+-----------------
+DQ2Clients 0.1.27
+
+Version V00-00-68
+-----------------
+PandaClient 0.1.30
+Ganga 5.1.8
+ROOT 5.22.00 (not made default until Athena 15.x.x is more mainstream)
+  Note that releases 5.22.00 onwards will have linux and gcc versions appended.
+
+Version V00-00-67
+-----------------
+ALRB V00-03-30
+
+Version V00-00-66
+-----------------
+PandaClient 0.1.28
+
+Version V00-00-65
+-----------------
+gLite 3.1.25-0
+
+Version V00-00-64
+-----------------
+PandaClient 0.1.26
+
+Version V00-00-63
+-----------------
+PandaClient 0.1.24
+
+Version V00-00-62
+-----------------
+ALRB V00-03-29
+
+Version V00-00-61
+-----------------
+PandaClient 0.1.21
+
+Version V00-00-60
+-----------------
+Ganga 5.1.7
+
+Version V00-00-59
+-----------------
+PandaClient 0.1.19
+
+Version V00-00-58
+-----------------
+ALRB V00-03-28
+
+Version V00-00-57
+-----------------
+ALRB V00-03-26
+
+Version V00-00-56
+-----------------
+PandaClient 0.1.18
+
+Version V00-00-55
+-----------------
+latestVersion tag file added.
+
+Version V00-00-54
+-----------------
+PandaClient 0.1.17
+
+Version V00-00-53
+-----------------
+ALRB V00-03-35
+Bug fix for color in black terminal windows.
+
+Version V00-00-52
+-----------------
+PandaClient 0.1.16
+
+Version V00-00-50
+-----------------
+DQ2 0.1.26
+
+Version V00-00-49
+-----------------
+DQ2 0.1.25
+ALRB V00-03-24
+
+Version V00-00-48
+-----------------
+ALRB V00-03-21
+PandaClient 0.1.14
+Automatically install ALRB.
+new tools in bin dir (soft links to ALBR).
+patches directories
+migrate i686 ROOT in x86_64 tree
+handle gLite WMS server changes.
+
+Version V00-00-47
+-----------------
+ALRB V00-03-08
+
+Version V00-00-46
+-----------------
+PandaClient 0.1.13
+
+Version V00-00-45
+-----------------
+Ganga 5.1.6
+
+Version V00-00-44
+-----------------
+ALRB V00-03-07
+
+Version V00-00-43
+-----------------
+PandaClient 0.1.12
+
+Version V00-00-42
+-----------------
+ALRB V00-03-06
+
+Version V00-00-41
+-----------------
+ALRB V00-03-04
+
+Version V00-00-40
+-----------------
+PandaClient 0.1.10
+Ganga 5.1.5
+ALRB V00-03-02
+
+Version V00-00-39
+-----------------
+Minor bug fixes
+
+Version V00-00-38
+-----------------
+Minor bug fixes
+
+Version V00-00-37
+-----------------
+Minor bug fixes
+
+Version V00-00-36
+-----------------
+ALRB V00-03-01
+PandaClient 0.1.8
+
+Version V00-00-35
+-----------------
+Ganga 5.1.4
+
+Version V00-00-34
+-----------------
+Ganga 5.1.3
+
+Version V00-00-33
+-----------------
+DQ2 0.1.24
+
+Version V00-00-32
+-----------------
+ALRB V00-02-13
+
+Version V00-00-31
+-----------------
+DQ2 0.1.23
+
+Version V00-00-30
+-----------------
+Ganga 5.1.2
+
+Version V00-00-29
+-----------------
+Ganga 5.1.1
+
+Version V00-00-28
+-----------------
+ALRB V00-02-12
+
+Version V00-00-27
+-----------------
+ALRB V00-02-10
+
+Version V00-00-26
+-----------------
+ALRB V00-02-09
+
+Version V00-00-25
+-----------------
+Updated _README.
+
+Version V00-00-24
+-----------------
+gLite 3.1.19-0
+
+Version V00-00-24
+-----------------
+added pacman options
+ALRB V00-02-08
+
+
+Version V00-00-22
+-----------------
+Ganga 5.1.0
+
+Version V00-00-21
+-----------------
+Ganga 5.0.10
+
+Version V00-00-20
+-----------------
+Added skipInstall to installation scripts.
+
+Version V00-00-19
+-----------------
+DQ2Client 0.1.22
+
+Version V00-00-18
+-----------------
+Ganga 5.0.9
+
+Version V00-00-17
+-----------------
+gLite 3.1.18-0.  Also, start to cleanup the updateATLASLocalRootBase.sh script.
+ALRB V00-02-04.
+
+Version V00-00-16
+-----------------
+ALRB V00-02-02 and remove no cron job recommendation.
+
+Version V00-00-15
+-----------------
+DQ2Client 0.1.21
+
+Version V00-00-14
+-----------------
+Ganga 5.0.8
+
+Version V00-00-13
+-----------------
+Ganga 5.0.7
+
+Version V00-00-12
+-----------------
+DQ2Client 0.1.20
+Ganga 5.0.6
+ALRB V00-02-01
+
+Version V00-00-11
+-----------------
+Provide i686 gLite tarball installations if yum installed version is not done.
+(Recommended method for i686 is yum install; please see
+https://twiki.atlas-canada.ca/bin/view/AtlasCanada/Install_gLite_UI)
+
+Version V00-00-10
+-----------------
+ATLASLocalRootBase V00-02-00
+DQ2Client 0.1.19
+
+Version V00-00-09
+-----------------
+ATLASLocalRootBase V00-01-17
+Install Ganga 5.0.5
+64 bit (x86_64) support added.
+Install gLite 3.1.14-0 for x86_64
+
+Version V00-00-08
+-----------------
+Install Ganga 5.0.4
+
+Version V00-00-07
+-----------------
+Install ATLASLocalRootBase V00-01-12
+
+Version V00-00-06
+-----------------
+Install Ganga 5.0.2
+Install ATLASLocalRootBase V00-01-11
+
+Version V00-00-05
+-----------------
+Install DQ2Client 0.1.17
+
+Version V00-00-04
+-----------------
+Using ALRB V00-01-08.
+
+Version V00-00-03
+-----------------
+Another minor instruction fix.
+
+Version V00-00-02
+-----------------
+Minor instruction fix.
+
+Version V00-00-01
+-----------------
+Uploaded the files to CVS.
+

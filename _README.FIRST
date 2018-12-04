@@ -1,0 +1,36 @@
+manageTier3SW
+-------------
+
+This package will contain various utilities to manage software at a Tier3.
+
+It uses the ATLASLocalRootBase package and will install it if requested.
+https://twiki.atlas-canada.ca/bin/view/AtlasCanada/ATLASLocalRootBase
+
+  Installation:
+
+	Login to your ATLAS administrator account.
+	cd ~/
+
+	svn co http://svn.cern.ch/guest/atcansupport/manageTier3SW/trunk userSupport/manageTier3SW
+
+	cd ~/userSupport/manageTier3SW
+	./updateManageTier3SW.sh -a <dir>
+you do not need the -a option if you are updating and have already defined 
+ATLAS_LOCAL_ROOT_BASE.
+	
+  Usage:
+
+	Login to your ATLAS administrator account.
+
+	Ensure you have ATLAS_LOCAL_ROOT_BASE defined 
+	(hint: in your ATLAS administrator account's ~/.bashrc file, add 
+	something like 
+	export ATLAS_LOCAL_ROOT_BASE=/atlas/ATLASLocalRootBase)
+	alias setupATLAS='source ${ATLAS_LOCAL_ROOT_BASE}/user/atlasLocalSetup.sh'
+	)
+
+
+	updateManageTier3SW.sh
+        The above can be a cron job but check that ATLAS_LOCAL_ROOT_BASE is
+	defined when the cron job runs.  
+
