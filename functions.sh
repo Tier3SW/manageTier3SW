@@ -138,15 +138,15 @@ mt3sw_fn_continueUpdate()
 	\cat $ALRB_installTmpDir/installDirCleanup.txt
     fi
 
-    if [ -e "$mt3sw_configDir/default/motd" ]; then
+    if [ -e "$mt3sw_configDir/motd" ]; then
 	mt3sw_fn_initSummary "Update motd"
-	\cp $mt3sw_configDir/default/motd $ATLAS_LOCAL_ROOT_BASE/etc/motd
+	\cp $mt3sw_configDir/motd $ATLAS_LOCAL_ROOT_BASE/etc/motd
 	mt3sw_fn_addSummary $? "continue"
     fi
 
     mt3sw_fn_initSummary "Update dependencies file"    
-    if [ -e "$mt3sw_configDir/default/dependencies.txt" ]; then
-	\cp $mt3sw_configDir/default/dependencies.txt $ATLAS_LOCAL_ROOT_BASE/etc/dependencies.txt
+    if [ -e "$mt3sw_configDir/dependencies.txt" ]; then
+	\cp $mt3sw_configDir/dependencies.txt $ATLAS_LOCAL_ROOT_BASE/etc/dependencies.txt
     else
 	\rm -f $ATLAS_LOCAL_ROOT_BASE/etc/dependencies.txt
     fi
@@ -238,7 +238,6 @@ mt3sw_fn_updateParseOptions()
 	mt3sw_ignoreLock="YES"
     fi
     mt3sw_noCronJobs=""
-    mt3sw_cName="default"
     mt3sw_pacmanOptions=""
     mt3sw_alrbInstallPath=""
     mt3sw_installArchived=""
@@ -557,7 +556,7 @@ mt3sw_fn_updateTools()
 		mt3sw_doHeader="done"
 	    fi
 	    alrb_fn_sourceFunctions $mt3sw_tool
-	    source $mt3sw_configDir/default/masterConfigs.sh
+	    source $mt3sw_configDir/masterConfigs.sh
 	    local alrb_Tool=$mt3sw_tool
             source $mt3sw_configFile
 	    alrb_fn_installCreateDefaultsAr 
@@ -585,8 +584,8 @@ mt3sw_fn_doCleanup()
 	\echo "Error: unable to cleanup as ATLAS_LOCAL_ROOT_BASE is undefined."
 	return 64
     fi
-    if [ "$mt3sw_configDir/default/cleanup.sh" ]; then
-	source $mt3sw_configDir/default/cleanup.sh
+    if [ "$mt3sw_configDir/cleanup.sh" ]; then
+	source $mt3sw_configDir/cleanup.sh
 	local mt3sw_item
 	for mt3sw_item in ${mt3sw_CleanupAr[@]}; do
 	    \rm -rf $ATLAS_LOCAL_ROOT_BASE/$mt3sw_item
