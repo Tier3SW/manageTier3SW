@@ -112,7 +112,7 @@ mt3sw_fn_continueUpdate()
 	exit 64
     fi
 
-    mt3sw_fn_initSummary "Get default $mt3sw_cVersion configs"
+    mt3sw_fn_initSummary "Get Tier3SWConfig $mt3sw_cVersion"
     mt3sw_fn_getConfigs "$mt3sw_cVersion"
     mt3sw_fn_addSummary $? "exit"
     
