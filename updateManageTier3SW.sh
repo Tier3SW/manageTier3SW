@@ -92,7 +92,7 @@ fi
 
 mt3sw_fn_initSummary "Upgrading manageTier3SW to $mt3sw_mVersion"
 cd $mt3sw_manageTier3SWDir
-git checkout -b $mt3sw_mVersion tags/$mt3sw_mVersion
+git checkout tags/$mt3sw_mVersion
 mt3sw_fn_addSummary $? "exit"
 
 \mkdir -p ~/bin
