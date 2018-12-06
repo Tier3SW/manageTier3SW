@@ -353,13 +353,13 @@ mt3sw_fn_getConfigs()
     if [ ! -e $mt3sw_configDir/.git ]; then
 	\echo  " Cloning Tier3SWConfig from git ..."
 	\rm -rf $mt3sw_configDir
-	git clone $mt3sw_myGitURL/Tier3SWConfig.git $$mt3sw_configDir
+	git clone $mt3sw_myGitURL/Tier3SWConfig.git $mt3sw_configDir
 	if [ $? -ne 0 ]; then
 	    return 64
 	fi
     fi
     
-    cd $$mt3sw_configDir
+    cd $mt3sw_configDir
 
     \echo  " updating Tier3SWConfig master ..."
     git checkout master
