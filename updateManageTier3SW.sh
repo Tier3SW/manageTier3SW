@@ -15,7 +15,7 @@
 
 mt3sw_progname=updateManageTier3SW.sh
 
-mt3sw_mySvnroot="http://svn.cern.ch/guest/atcansupport/"
+mt3sw_myGitURL="https://github.com/Tier3SW"
 
 mt3sw_userSupportDir="`eval echo ~/userSupport`"
 
@@ -28,7 +28,7 @@ if [ -z $mt3sw_manageTier3SWDir ]; then
 fi
 source $mt3sw_manageTier3SWDir/functions.sh
 
-mt3sw_configDir="$mt3sw_userSupportDir/cfgManageTier3SW"
+mt3sw_configDir="$mt3sw_userSupportDir/Tier3SWConfig"
 
 \echo "Updating manageTier3SW ..."
 
@@ -75,17 +75,24 @@ if [ "$mt3sw_ignoreLock" != "YES" ]; then
     chmod -w $mt3sw_lockFile
 fi
 
+cd $mt3sw_manageTier3SWDir
+
+mt3sw_fn_initSummary "Getting mnageTier3SW updated master"
+git checkout master
+mt3sw_rc=$?
+if [ $mt3sw_rc -eq 0 ]; then
+    git pull
+    mt3sw_rc=$?
+fi
+mt3sw_fn_addSummary $mt3sw_rc "exit"
+
 if [ "$mt3sw_mVersion" = "" ]; then    
-    mt3sw_fn_initSummary "Getting mnageTier3SW trunk for latestVersion"
-    svn switch $mt3sw_mySvnroot/manageTier3SW/trunk $mt3sw_manageTier3SWDir
-    mt3sw_fn_addSummary $? "exit"
     mt3sw_mVersion=`\cat $mt3sw_manageTier3SWDir/latestVersion`
-else
-    mt3sw_mVersion=$mt3sw_mVersion
 fi
 
 mt3sw_fn_initSummary "Upgrading manageTier3SW to $mt3sw_mVersion"
-svn switch $mt3sw_mySvnroot/manageTier3SW/tags/$mt3sw_mVersion $mt3sw_manageTier3SWDir
+cd $mt3sw_manageTier3SWDir
+git checkout tags/$mt3sw_mVersion
 mt3sw_fn_addSummary $? "exit"
 
 \mkdir -p ~/bin

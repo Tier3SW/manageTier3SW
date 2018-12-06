@@ -11,7 +11,7 @@ https://twiki.atlas-canada.ca/bin/view/AtlasCanada/ATLASLocalRootBase
 	Login to your ATLAS administrator account.
 	cd ~/
 
-	svn co http://svn.cern.ch/guest/atcansupport/manageTier3SW/trunk userSupport/manageTier3SW
+	git clone https://github.com/Tier3SW/manageTier3SW.git userSupport/manageTier3SW
 
 	cd ~/userSupport/manageTier3SW
 	./updateManageTier3SW.sh -a <dir>

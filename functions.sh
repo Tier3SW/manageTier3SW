@@ -112,20 +112,10 @@ mt3sw_fn_continueUpdate()
 	exit 64
     fi
 
-    local mt3sw_defaultVersion=""
-    if [ "$mt3sw_cName" = "default" ]; then
-	mt3sw_defaultVersion="$mt3sw_cVersion"
-    fi
-    mt3sw_fn_initSummary "Get default $mt3sw_defaultVersion configs"
-    mt3sw_fn_getConfigs default "$mt3sw_defaultVersion"
+    mt3sw_fn_initSummary "Get default $mt3sw_cVersion configs"
+    mt3sw_fn_getConfigs "$mt3sw_cVersion"
     mt3sw_fn_addSummary $? "exit"
     
-    if [ "$mt3sw_cName" != "default" ]; then
-	mt3sw_fn_initSummary "Get $mt3sw_cName $mt3sw_cVersion configs"
-	mt3sw_fn_getConfigs "$mt3sw_cName" "$mt3sw_cVersion" 
-	mt3sw_fn_addSummary $? "exit"
-    fi
-
     mt3sw_fn_initSummary "Update ATLASLocalRootBase"
     mt3sw_fn_updateALRB
     mt3sw_fn_addSummary $? "exit"
@@ -186,7 +176,6 @@ Usage: updateManageTier3SW.sh [options]
     Options:
 
     -m --mVersion=string         Version of manageTier3SW to use
-    -n --cName=string            Config name
     -c --cVersion=string         Config version to use 
     -L --localConfig=string      Local dir containing config fies (overwrite)
 
@@ -272,7 +261,7 @@ mt3sw_fn_updateParseOptions()
 		\echo "option mail is obsolete"
 		shift 2
 		;;		
-            --defaultConfigVer|--overrideConfigVer|-c|-cVersion)
+            --defaultConfigVer|--overrideConfigVer|-c|--cVersion)
 		mt3sw_cVersion=$2
 		shift 2
 		;;		
@@ -298,7 +287,7 @@ mt3sw_fn_updateParseOptions()
 		shift
 		;;		
             --overrideConfig|-n|--cName)
-		mt3sw_cName=$2
+		\echo "Warning: overrideConfig is obsolete"
 		shift 2
 		;;		
             -p|--pacmanOptions)
@@ -359,30 +348,37 @@ mt3sw_fn_cleanup()
 mt3sw_fn_getConfigs() 
 #!----------------------------------------------------------------------------
 {
-    local mt3sw_configName=$1
-    local mt3sw_configVersion=$2
+    local mt3sw_configVersion=$1
 
-    local mt3sw_svnAction="co"
-    if [ -d "$mt3sw_configDir/$mt3sw_configName/.svn" ]; then
-	local mt3sw_svnAction="switch"
-    fi
-
-    if [ "$mt3sw_configVersion" = "" ]; then
-	\echo  " Getting $mt3sw_configName trunk for version ..."
-	svn $mt3sw_svnAction $mt3sw_mySvnroot/cfgManageTier3SW/$mt3sw_configName/trunk $mt3sw_configDir/$mt3sw_configName
+    if [ ! -e $mt3sw_configDir/.git ]; then
+	\echo  " Cloning Tier3SWConfig from git ..."
+	\rm -rf $mt3sw_configDir
+	git clone $mt3sw_myGitURL/Tier3SWConfig.git $$mt3sw_configDir
 	if [ $? -ne 0 ]; then
 	    return 64
 	fi
-	local mt3sw_configVersion=`\cat $mt3sw_configDir/$mt3sw_configName/latestVersion`
-	local mt3sw_svnAction="switch"
     fi
+    
+    cd $$mt3sw_configDir
 
-    \echo " Getting $mt3sw_configName $mt3sw_configVersion ..."
-    svn $mt3sw_svnAction $mt3sw_mySvnroot/cfgManageTier3SW/$mt3sw_configName/tags/$mt3sw_configVersion $mt3sw_configDir/$mt3sw_configName
+    \echo  " updating Tier3SWConfig master ..."
+    git checkout master
     if [ $? -ne 0 ]; then
 	return 64
     fi
-    
+    git pull
+    if [ $? -ne 0 ]; then
+	return 64
+    fi
+
+    if [ "$mt3sw_configVersion" = "" ]; then
+	\echo  " Getting Tier3SWConfig $mt3sw_configName version ..."
+	git checkout tags/$mt3sw_configName
+	if [ $? -ne 0 ]; then
+	    return 64
+	fi
+    fi
+
     return 0
 }
 
@@ -403,22 +399,12 @@ mt3sw_fn_getConfigFile()
 	    return 0
 	fi
     fi
-
-    if [ "$mt3sw_cName" != "default" ]; then
-	if [ -e "$mt3sw_configDir/$mt3sw_cName/tools/$mt3sw_file-$mt3sw_os.sh" ]; then
-	    \echo $mt3sw_configDir/$mt3sw_cName/tools/$mt3sw_file-$mt3sw_os.sh
-	    return 0
-	elif [ -e "$mt3sw_configDir/$mt3sw_cName/tools/$mt3sw_file.sh" ]; then
-	    \echo $mt3sw_configDir/$mt3sw_cName/tools/$mt3sw_file.sh
-	    return 0
-	fi
-    fi
  
-    if [ -e "$mt3sw_configDir/default/tools/$mt3sw_file-$mt3sw_os.sh" ]; then
-	\echo "$mt3sw_configDir/default/tools/$mt3sw_file-$mt3sw_os.sh"
+    if [ -e "$mt3sw_configDir/tools/$mt3sw_file-$mt3sw_os.sh" ]; then
+	\echo "$mt3sw_configDir/tools/$mt3sw_file-$mt3sw_os.sh"
 	return 0
-    elif [ -e "$mt3sw_configDir/default/tools/$mt3sw_file.sh" ]; then
-	\echo "$mt3sw_configDir/default/tools/$mt3sw_file.sh"
+    elif [ -e "$mt3sw_configDir/tools/$mt3sw_file.sh" ]; then
+	\echo "$mt3sw_configDir/tools/$mt3sw_file.sh"
 	return 0
    else
 	\echo "Error: Unable to find config $mt3sw_file.sh"
@@ -450,42 +436,59 @@ mt3sw_fn_updateALRB()
 	fi
     fi
 
-    local mt3sw_action="switch"
     if [ -z $ATLAS_LOCAL_ROOT_BASE ]; then
 	if [ "$mt3sw_alrbInstallPath" = "" ]; then
 	    \echo "Error: No \$ATLAS_LOCAL_ROOT_BASE and no install opt given"
 	    return 64
 	else
-	    if [ -e "$mt3sw_alrbInstallPath/ATLASLocalRootBase/.svn/entries" ]; then
-		local mt3sw_action="switch"
-	    else
-		local mt3sw_action="co"
+	    \mkdir -p $mt3sw_alrbInstallPath
+	    if [ $? -ne 0 ]; then
+		\echo "Error: Cannot create ALRB home dir"
+		return 64
 	    fi
 	fi
-	\mkdir -p $mt3sw_alrbInstallPath
-	if [ $? -ne 0 ]; then
-	    \echo "Error: Cannot create ALRB home dir"
-	    return 64
-	fi
 	local mt3SW_alrbPath="$mt3sw_alrbInstallPath/ATLASLocalRootBase"
+	
     elif [ "$mt3sw_alrbInstallPath" != "" ]; then
 	if [ "$mt3sw_alrbInstallPath/ATLASLocalRootBase" != "$ATLAS_LOCAL_ROOT_BASE" ]; then
 	    \echo "Error: \$ATLAS_LOCAL_ROOT_BASE != set installation option"
 	    return 64
 	fi	
 	local mt3SW_alrbPath=$ATLAS_LOCAL_ROOT_BASE
-    elif [ ! -d "$ATLAS_LOCAL_ROOT_BASE/.svn" ]; then
+
+    elif [ ! -d "$ATLAS_LOCAL_ROOT_BASE/.git" ]; then
 	\echo "Error: ALRB is not installed.  Use the installation option"
 	return 64
+
     else
 	local mt3SW_alrbPath=$ATLAS_LOCAL_ROOT_BASE
     fi
+
+    if [ ! -e $mt3SW_alrbPath/.git ]; then
+	\echo " Cloning ATLASLocalRootBase from git"
+	git clone $mt3sw_myGitURL/ATLASLocalRootBase.git $mt3SW_alrbPath
+	if [ $? -ne 0 ]; then
+	    return 64
+	fi
+    fi
     
     \echo " ATLASLocalRootBase version: $mt3sw_alrbInstallVersion"
-    svn $mt3sw_action $mt3sw_alrbSvnRoot/ATLASLocalRootBase/tags/$mt3sw_alrbInstallVersion $mt3SW_alrbPath
+    cd $mt3SW_alrbPath
+    
+    git checkout master
     if [ $? -ne 0 ]; then
 	return 64
     fi
+    git pull
+    if [ $? -ne 0 ]; then
+	return 64
+    fi
+
+    git checkout $mt3sw_alrbInstallVersion
+    if [ $? -ne 0 ]; then
+	return 64
+    fi
+
     export ATLAS_LOCAL_ROOT_BASE=$mt3SW_alrbPath
 
     \mkdir -p $ATLAS_LOCAL_ROOT_BASE/etc
