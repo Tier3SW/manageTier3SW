@@ -372,11 +372,11 @@ mt3sw_fn_getConfigs()
 
     if [ "$mt3sw_configVersion" = "" ]; then
 	local mt3sw_configVersion=`\cat $mt3sw_configDir/latestVersion`
-	\echo  " Getting Tier3SWConfig $mt3sw_configVersion version ..."
-	git checkout -b $mt3sw_configVersion tags/$mt3sw_configVersion
-	if [ $? -ne 0 ]; then
-	    return 64
-	fi
+    fi
+    \echo  " Getting Tier3SWConfig $mt3sw_configVersion version ..."
+    git checkout -b $mt3sw_configVersion tags/$mt3sw_configVersion
+    if [ $? -ne 0 ]; then
+	return 64
     fi
 
     return 0
